@@ -5,10 +5,9 @@ import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
 
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+function ProductsPage() {
+  const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
 
-function PricingPage() {
   return (
     <>
       <Hero />
@@ -16,7 +15,7 @@ function PricingPage() {
         imageURL="media/images/kite.png"
         productName="Kite"
         productDesription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
-        tryDemo=""
+        tryDemo={DASHBOARD_URL}
         learnMore=""
         googlePlay=""
         appStore=""
@@ -60,4 +59,4 @@ function PricingPage() {
   );
 }
 
-export default PricingPage;
+export default ProductsPage;

@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+
   return (
     <nav
       class="navbar navbar-expand-lg border-bottom"
       style={{ backgroundColor: "#FFF" }}
     >
       <div class="container p-2">
-        <a class="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img
-            src="media/images/logo.svg"
+            src="/media/images/Logo.svg"
             style={{ width: "25%" }}
             alt="Logo"
           />
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -29,28 +32,33 @@ function Navbar() {
           <form class="d-flex" role="search">
             <ul class="navbar-nav mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" to="/signup">
                   Signup
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <Link className="nav-link active" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <Link className="nav-link active" to="/products">
                   Product
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <Link className="nav-link active" to="/pricing">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <Link className="nav-link active" to="/support">
                   Support
+                </Link>
+              </li>
+              <li class="nav-item">
+                <a className="nav-link active" href={DASHBOARD_URL} style={{ color: "#387ed1", fontWeight: "600" }}>
+                  Dashboard (Kite)
                 </a>
               </li>
             </ul>

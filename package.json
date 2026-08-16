@@ -1,0 +1,11 @@
+{
+  "name": "stock-trading-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "start.bat",
+    "backend": "cd backend && node index.js",
+    "dashboard": "cd dashboard && npm start",
+    "frontend": "cd frontend && npm start"
+  }
+}
