@@ -6,7 +6,10 @@ import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+  const rawApiUrl = process.env.REACT_APP_API_URL || "http://localhost:3002";
+  const API_BASE_URL = rawApiUrl.startsWith("http")
+    ? rawApiUrl
+    : `https://${rawApiUrl}`;
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/allHoldings`).then((res) => {

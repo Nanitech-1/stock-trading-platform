@@ -7,8 +7,8 @@ services:
     runtime: node
     rootDir: backend
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: yarn install
+    startCommand: yarn start
     envVars:
       - key: MONGO_URL
         sync: false

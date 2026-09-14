@@ -8,7 +8,7 @@ This guide provides step-by-step instructions to deploy the entire full-stack pr
 
 | Service | Render Type | Root Directory | Build Command | Start / Publish |
 | :--- | :--- | :--- | :--- | :--- |
-| **Backend API** | Web Service | `backend` | `npm install` | `npm start` |
+| **Backend API** | Web Service | `backend` | `yarn install` | `yarn start` |
 | **Frontend Landing** | Static Site | `frontend` | `npm install && npm run build` | `build` |
 | **Kite Dashboard** | Static Site | `dashboard` | `npm install && npm run build` | `build` |
 
@@ -77,8 +77,8 @@ If you prefer to configure each service manually in the Render UI:
    - **Name**: `zerodha-backend`
    - **Root Directory**: `backend`
    - **Environment**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
+   - **Build Command**: `yarn install`
+   - **Start Command**: `yarn start`
    - **Instance Type**: `Free`
 4. Under **Environment Variables**, add:
    - `MONGO_URL`: `<your-mongodb-atlas-connection-string>`
