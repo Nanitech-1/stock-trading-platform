@@ -54,6 +54,9 @@ You can deploy using either **Option A (Render Blueprint - Recommended)** or **O
 4. Render will read [`render.yaml`](./render.yaml) and automatically configure all 3 services!
 5. In the environment variable prompt for `zerodha-backend`, set:
    - `MONGO_URL`: *Your MongoDB connection string from Step 1*
+   - `ANTHROPIC_API_KEY`: *Your Anthropic Claude API key*
+   - `OPENAI_API_KEY`: *Your OpenAI API key for embeddings*
+   - `ANTHROPIC_MODEL`: `claude-3-5-sonnet-20241022` (default)
 6. Click **Apply**.
 7. Once the build completes:
    - Copy your Frontend URL (e.g. `https://zerodha-frontend.onrender.com`).

@@ -14,15 +14,19 @@ services:
         sync: false
       - key: NODE_ENV
         value: production
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-3-5-sonnet-20241022
+      - key: OPENAI_API_KEY
+        sync: false
 
   # -------------------------------------------------------------
   # 2. Frontend Landing Page (React Static Site)
   # -------------------------------------------------------------
-  - type: web
+  - type: static
     name: zerodha-frontend
-    runtime: static
     rootDir: frontend
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./build
     routes:
@@ -43,11 +47,9 @@ services:
   # -------------------------------------------------------------
   # 3. Kite Dashboard (React Static Site)
   # -------------------------------------------------------------
-  - type: web
+  - type: static
     name: zerodha-dashboard
-    runtime: static
     rootDir: dashboard
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./build
     routes:

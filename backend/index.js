@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
+const http = require("http");
+const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -10,11 +12,21 @@ const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 const { UsersModel } = require("./model/UsersModel");
+const { setupCopilotSocket } = require("./copilot/socket");
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+setupCopilotSocket(io);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -161,8 +173,8 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.listen(PORT, async () => {
-  console.log(`Backend server started on port ${PORT}!`);
+server.listen(PORT, async () => {
+  console.log(`Backend server with Socket.io started on port ${PORT}!`);
   await connectDB();
   console.log("Database initialized and ready!");
 });
