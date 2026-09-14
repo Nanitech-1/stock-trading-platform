@@ -2,6 +2,8 @@
 
 A full-stack clone of the Zerodha stock trading platform consisting of a consumer-facing marketing landing page, an interactive trading dashboard (resembling Kite), and an Express API connected to MongoDB.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Nanitech-1/stock-trading-platform)
+
 ---
 
 ## 🏗️ Architecture Overview
